@@ -5,7 +5,7 @@ Crypto Portfolio Clustering with and without optimization techniques (elbow meth
 
 ## Analysis 
 
-This is an anlysis of crypto market data, specifically the price-change data, for several crypto tokens. Two different KMeans unsupervised learning approaches were used to analyze this data, and come up with two different cluster plots. The first approach uses the original data, with standard scaling, and the second approach uses PCA - Principal Component Analysis to first reduce the features and then generate a model. In both cases, the Elbow Method was used to choos a k value for the number of clusters.
+This is an anlysis of crypto market data, specifically the price-change data, for several crypto tokens. Two different KMeans unsupervised learning approaches were used to analyze this data, and come up with two different cluster plots. The first approach uses the original data, with standard scaling, and the second approach uses [Principal Component Analysis](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) to first reduce the features and then generate a model. In both cases, the Elbow Method was used to choos a k value for the number of clusters.
 
 See full analysis details in the notebook [crypto_investments.ipynb](app/crypto_investments.ipynb)  
 
@@ -27,13 +27,15 @@ A single dataset was used to anlyze this space:
 ## Summary
 
 **Original Feature Data**  
-TBD  
+Using the elbow method with the original feature data (no PCA), suggested a k value of 4, as the inertia change really flattened after k=4. The resulting clustering plot with standard scalar (no PCA), was not very tight, and showed spread in each of the two main clusters (0 and 3). Specifically, there were two semi overlapping clusters for most of the data points, but also two clusters with only single outliers.  
 
 **PCA Data**  
-TBD   
+Using the elbow method with the PCA approach also yielded a k of 4, although the elbow plot was more stark with PCA than with original feature data. The resulting cluster plot with PCA was more distinct than that using the original feature data as well. The PCA scatter plot main two clusters (1,2) were better clustered although also had a little overlap. There were also two clusters which only had single outlier points, which is similar to the non-pca approach.  
+
+Overall, using the PCA approach, reduces the number of features down to a smaller set, which yielded results that were better as well as easier to work with.  
 
 
-**General Summary**  
+**Visual Comparison Summary**  
 
 
 Below are screen caps showing the comparison for the Elbow Methods and resulting cluster plots when using the original standard-scaled vs PCA optimizations.  
